@@ -1046,7 +1046,9 @@ static void wait_for_client_disconnect()
 	struct pollfd pfd;
 	pfd.fd = 1;
 	pfd.events = POLLIN;
+	trace_printf("-------wait_for_client_disconnect: entering poll()-------");
 	poll(&pfd, 1, timeout_seconds * 1000);
+	trace_printf("-------wait_for_client_disconnect: poll() exited-------");
 }
 
 int cmd_main(int argc, const char **argv)
