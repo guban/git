@@ -1787,6 +1787,10 @@ int cmd_index_pack(int argc, const char **argv, const char *prefix)
 	curr_index = write_idx_file(index_name, idx_objects, nr_objects, &opts, pack_sha1);
 	free(idx_objects);
 
+	trace_printf("-------ARTIFICIAL DELAY------- entering sleep()");
+	sleep(5);
+	trace_printf("-------ARTIFICIAL DELAY------- sleep() exited");
+
 	if (!verify)
 		final(pack_name, curr_pack,
 		      index_name, curr_index,
